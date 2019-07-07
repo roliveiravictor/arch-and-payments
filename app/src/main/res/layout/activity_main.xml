@@ -5,8 +5,12 @@
 
     <data>
         <variable
-            name="mainActivity"
-            type="com.stonetree.paymentsapp.MainActivity"/>
+            name="vm"
+            type="com.stonetree.paymentsapp.MainViewModel"/>
+
+        <variable
+            name="presenter"
+            type="com.stonetree.paymentsapp.MainPresenter"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,32 +18,32 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/purchase_in_app"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Google Pay"
-            app:layout_constraintBottom_toTopOf="@+id/google_pay"
-            tools:layout_editor_absoluteX="-16dp" />
-
-        <Button
             android:id="@+id/google_pay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Google Pay"
+            app:layout_constraintBottom_toTopOf="@+id/purchase_in_app"
+            tools:layout_editor_absoluteX="-16dp" />
+
+        <Button
+            android:id="@+id/purchase_in_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="In-App Purchase"
+            android:onClick="@{presenter.onClick}"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="10dp" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/purchase"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{MainActivity.setText}"
+            android:text="@{vm.status, default = Empty}"
             app:layout_constraintBottom_toTopOf="@+id/purchase_in_app"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="My Purchase Message"
-            android:visibility="gone"/>
+            tools:text="My Purchase Message" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
