@@ -9,8 +9,8 @@
             type="com.stonetree.paymentsapp.MainViewModel"/>
 
         <variable
-            name="presenter"
-            type="com.stonetree.paymentsapp.MainPresenter"/>
+            name="view"
+            type="com.stonetree.paymentsapp.MainActivity"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="In-App Purchase"
-            android:onClick="@{presenter.onClick}"
+            android:onClick="@{view.onClick}"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="10dp" />
 
