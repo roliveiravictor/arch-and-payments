@@ -13,13 +13,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), PaymentsListener {
 
-    private var vm: MainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+    private lateinit var vm : MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val container : ActivityMainBinding = DataBindingUtil.setContentView(
             this, R.layout.activity_main)
+
+        vm = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         bindData(container)
         bindObserver()
