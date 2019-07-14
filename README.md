@@ -1,5 +1,5 @@
 [![MKT](https://img.shields.io/badge/version-v1.0.0-blue.svg)](https://img.shields.io/badge/version-v1.0.0-blue.svg)
-[![MKT](https://img.shields.io/badge/language-Java-orange.svg)](https://img.shields.io/badge/language-Kotlin-orange.svg)
+[![MKT](https://img.shields.io/badge/language-Kotlin-orange.svg)](https://img.shields.io/badge/language-Kotlin-orange.svg)
 [![MKT](https://img.shields.io/badge/platform-Android-lightgrey.svg)](https://img.shields.io/badge/platform-Android-lightgrey.svg)
 [![MKT](https://img.shields.io/badge/license-Copyleft-red.svg)](./LICENSE)
 
@@ -31,7 +31,7 @@
 
 # Description
 
--   Payments android library. Android Architecture SDK.
+-   Android payments library designed with Jetpack. Android Architecture SDK.
 
 # IDE
 
