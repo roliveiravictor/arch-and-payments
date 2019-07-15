@@ -1,9 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'maven-publish'
+
 android {
     compileSdkVersion 28
-
 
     defaultConfig {
         minSdkVersion 25
@@ -21,7 +22,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+}
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'br.com.stonetree.payments'
+            artifactId 'payments'
+
+            version mavenVersion
+
+            if (version.contains('RELEASE')) {
+                artifact source: "$buildDir/outputs/aar/payments-release.aar", extension: 'aar'
+            } else {
+                artifact source: "$buildDir/outputs/aar/payments-debug.aar", extension: 'aar'
+            }
+        }
+    }
 }
 
 dependencies {
@@ -30,7 +47,8 @@ dependencies {
     implementation "com.android.billingclient:billing:$billingclient"
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.core:core-ktx:1.0.2'
+
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
